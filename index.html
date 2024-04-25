@@ -63,13 +63,13 @@
 
         function displayBooks(books) {
             const booksContainer = document.getElementById('booksContainer');
-            booksContainer.innerHTML = books;
+            booksContainer.innerHTML = '';
 
-            /*books.forEach(book => {
+            books.forEach(book => {
                 const bookDiv = document.createElement('div');
-                bookDiv.innerHTML = `<strong>${book.title}</strong> by ${book.author}`;
+                bookDiv.innerHTML = `<strong>${book.id}</strong> by ${book.name}`;
                 booksContainer.appendChild(bookDiv);
-            }); */
+            });
         }
     </script>
 </body>
