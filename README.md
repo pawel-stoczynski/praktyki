@@ -1,0 +1,2 @@
+# praktyki
+repo pod praktyki
