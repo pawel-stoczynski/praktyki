@@ -40,5 +40,37 @@
         <p>This is a simple landing page created with HTML and CSS.</p>
         <a href="#" class="cta-button">Learn More</a>
     </div>
+     <button id="fetchBooksBtn">Fetch Books</button>
+    
+    <div id="booksContainer">
+        <!-- Books will be displayed here -->
+    </div>
+    <script>
+        document.getElementById('fetchBooksBtn').addEventListener('click', function() {
+            fetchBooks();
+        });
+
+        function fetchBooks() {
+            fetch('https://szafir.kir.com.pl/eshop-web/api/dictionary/countries')
+                .then(response => response.json())
+                .then(data => {
+                    displayBooks(data);
+                })
+                .catch(error => {
+                    console.error('Error fetching books:', error);
+                });
+        }
+
+        function displayBooks(books) {
+            const booksContainer = document.getElementById('booksContainer');
+            booksContainer.innerHTML = '';
+
+            books.forEach(book => {
+                const bookDiv = document.createElement('div');
+                bookDiv.innerHTML = `<strong>${book.id}</strong> by ${book.name}`;
+                booksContainer.appendChild(bookDiv);
+            });
+        }
+    </script>
 </body>
 </html>
